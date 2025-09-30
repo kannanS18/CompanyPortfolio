@@ -5,11 +5,20 @@
   --text-gray: #b0b0b0;
   --card-bg: rgba(30, 30, 30, 0.9);
   --shadow-primary: rgba(229, 57, 53, 0.12);
+  
+  /* New Color Palette */
+  --sit-blue: #000080;
+  --sit-darker-blue: #00005e;
+  --sit-light-blue: #4040c0;
+  --sit-accent: #000066;
+  --sit-white: #ffffff;
+  --sit-light: #f8f9fa;
+  --sit-glassmorphism: rgba(255, 255, 255, 0.1);
 }
 
 .projects-section-3d {
   min-height: 200vh;
-  background: linear-gradient(135deg, var(--bg-dark) 0%, #1a1a1a 50%, var(--primary-color) 100%);
+  background: linear-gradient(135deg, var(--sit-blue) 0%, var(--sit-darker-blue) 50%, var(--sit-accent) 100%);
   padding: 80px 2rem 2rem;
   font-family: 'Poppins', Arial, sans-serif;
   perspective: 1000px;
@@ -30,17 +39,17 @@
 
 .projects-header-3d h1 {
   font-size: 3rem;
-  color: var(--text-white);
+  color: var(--sit-white);
   margin-bottom: 1rem;
   font-weight: 700;
-  text-shadow: 0 0 30px rgba(229, 57, 53, 0.5);
+  text-shadow: 0 0 30px rgba(64, 64, 192, 0.5);
 }
 
 
 
 .projects-header-3d p {
   font-size: 1.4rem;
-  color: var(--text-gray);
+  color: rgba(255, 255, 255, 0.9);
   opacity: 0.9;
 }
 
@@ -57,17 +66,17 @@
   transform: translateX(-50%);
   width: 6px;
   height: calc(100% - 200px);
-  background: rgba(229, 57, 53, 0.2);
+  background: rgba(64, 64, 192, 0.2);
   border-radius: 3px;
   z-index: 5;
 }
 
 .timeline-progress {
   width: 100%;
-  background: linear-gradient(180deg, var(--primary-color), #ff6b6b, var(--primary-color));
+  background: linear-gradient(180deg, var(--sit-blue), var(--sit-light-blue), var(--sit-blue));
   border-radius: 3px;
   transition: height 0.1s ease;
-  box-shadow: 0 0 20px rgba(229, 57, 53, 0.6);
+  box-shadow: 0 0 20px rgba(64, 64, 192, 0.6);
 }
 
 .timeline-orb {
@@ -76,11 +85,11 @@
   width: 30px;
   height: 30px;
   margin-left: -15px;
-  background: var(--primary-color);
+  background: var(--sit-blue);
   border-radius: 50%;
   box-shadow: 
-    0 0 0 8px rgba(229, 57, 53, 0.3),
-    0 0 30px rgba(229, 57, 53, 0.8),
+    0 0 0 8px rgba(64, 64, 192, 0.3),
+    0 0 30px rgba(64, 64, 192, 0.8),
     inset 0 0 10px rgba(255, 255, 255, 0.3);
   animation: orbPulse 2s ease-in-out infinite;
   transition: top 0.3s ease;
@@ -91,14 +100,14 @@
   0%, 100% { 
     transform: translateY(-50%) scale(1);
     box-shadow: 
-      0 0 0 8px rgba(229, 57, 53, 0.3),
-      0 0 30px rgba(229, 57, 53, 0.8);
+      0 0 0 8px rgba(64, 64, 192, 0.3),
+      0 0 30px rgba(64, 64, 192, 0.8);
   }
   50% { 
     transform: translateY(-50%) scale(1.2);
     box-shadow: 
-      0 0 0 15px rgba(229, 57, 53, 0.2),
-      0 0 50px rgba(229, 57, 53, 1);
+      0 0 0 15px rgba(64, 64, 192, 0.2),
+      0 0 50px rgba(64, 64, 192, 1);
   }
 }
 
@@ -180,13 +189,13 @@
   backface-visibility: hidden;
   border-radius: 20px;
   padding: 2rem;
-  background: var(--card-bg);
+  background: var(--sit-white);
   backdrop-filter: blur(15px);
-  border: 2px solid transparent;
+  border: 2px solid var(--sit-light-blue);
   background-clip: padding-box;
   box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.3),
-    0 0 0 1px rgba(229, 57, 53, 0.2);
+    0 20px 40px rgba(0, 0, 128, 0.15),
+    0 0 0 1px rgba(64, 64, 192, 0.2);
   overflow: visible;
   display: flex;
   flex-direction: column;
@@ -208,7 +217,7 @@
 
 .card-back {
   transform: rotateY(180deg);
-  background: linear-gradient(135deg, var(--card-bg), rgba(229, 57, 53, 0.1));
+  background: linear-gradient(135deg, var(--sit-white), rgba(64, 64, 192, 0.1));
   min-height: 500px;
   padding: 2.5rem;
 }
@@ -234,17 +243,17 @@
 
 
 .card-front h3 {
-  color: var(--text-white);
+  color: #1e293b;
   font-size: clamp(1.3rem, 4vw, 2rem);
   margin-bottom: 0;
-  font-weight: 600;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+  text-shadow: none;
   flex-shrink: 0;
 }
 
 .card-front p {
-  color: var(--text-gray);
-  line-height: 1.5;
+  color: #64748b;
+  line-height: 1.6;
   margin-bottom: 0;
   font-size: clamp(0.9rem, 2.5vw, 1.1rem);
   flex-grow: 1;
@@ -262,22 +271,22 @@
 }
 
 .tech-tag-3d {
-  background: rgba(229, 57, 53, 0.2);
-  color: var(--primary-color);
+  background: var(--sit-light);
+  color: var(--sit-blue);
   padding: clamp(0.3rem, 1.5vw, 0.5rem) clamp(0.6rem, 2.5vw, 1rem);
   border-radius: 25px;
   font-size: clamp(0.7rem, 2vw, 0.9rem);
   font-weight: 500;
-  border: 1px solid var(--primary-color);
+  border: 1px solid #e2e8f0;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   white-space: nowrap;
 }
 
 .tech-tag-3d:hover {
-  background: var(--primary-color);
-  color: white;
-  transform: translateY(-2px);
+  background: var(--sit-blue);
+  color: var(--sit-white);
+  transform: translateY(-2px) scale(1.1);
 }
 
 .project-details {
@@ -289,11 +298,12 @@
 }
 
 .project-details h4 {
-  color: var(--text-white);
+  color: #1e293b;
   font-size: clamp(1.3rem, 4vw, 1.8rem);
   margin-bottom: 0;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  text-shadow: none;
   flex-shrink: 0;
+  font-weight: 700;
 }
 
 .detail-item {
@@ -308,13 +318,15 @@
 }
 
 .detail-item span:first-child {
-  color: var(--text-gray);
+  color: #64748b;
   font-weight: 500;
   font-size: clamp(0.9rem, 2.5vw, 1rem);
 }
 
 .detail-item span:last-child {
   font-size: clamp(0.9rem, 2.5vw, 1rem);
+  color: var(--sit-blue);
+  font-weight: 600;
 }
 
 .status-3d {
@@ -345,41 +357,29 @@
 
 .view-project-3d {
   position: relative;
-  background: transparent;
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
+  background: var(--sit-blue);
+  border: 2px solid var(--sit-blue);
+  color: var(--sit-white);
   padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
-  border-radius: 50px;
+  border-radius: 25px;
   font-size: clamp(1rem, 2.5vw, 1.1rem);
   font-weight: 600;
   cursor: pointer;
   overflow: hidden;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
   margin-top: auto;
   align-self: center;
   flex-shrink: 0;
 }
 
 .view-project-3d:hover {
-  color: white;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(229, 57, 53, 0.4);
+  background: transparent;
+  color: var(--sit-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 128, 0.15);
 }
 
-.button-bg {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, var(--primary-color), #ff6b6b);
-  transition: left 0.4s ease;
-  z-index: -1;
-}
 
-.view-project-3d:hover .button-bg {
-  left: 0;
-}
 
 
 
