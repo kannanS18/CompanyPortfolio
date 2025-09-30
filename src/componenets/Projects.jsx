@@ -186,18 +186,6 @@ export default function Projects() {
                           <span key={i} className="tech-tag-3d">{tech}</span>
                         ))}
                       </div>
-                      <div className="mobile-project-footer">
-                        <span className="mobile-status">{project.status}</span>
-                        <button 
-                          className="mobile-view-btn"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            window.open(project.url, '_blank');
-                          }}
-                        >
-                          View Project
-                        </button>
-                      </div>
                     </div>
                     <div className="card-back">
                       <div className="project-details">
