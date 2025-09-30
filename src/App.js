@@ -9,11 +9,10 @@ import Contact from './componenets/contact'
 export default function App() {
   const [activeSection, setActiveSection] = useState(() => {
     const path = window.location.pathname.slice(1) || 'home';
-    return localStorage.getItem('activeSection') || path;
+    return path;
   });
 
   useEffect(() => {
-    localStorage.setItem('activeSection', activeSection);
     window.history.pushState(null, '', `/${activeSection}`);
   }, [activeSection]);
 

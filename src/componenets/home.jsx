@@ -16,8 +16,8 @@ export default function Home({ onNavigate }) {
   return (
     <section className="home-section" id="home">
       <div className="home-images">
-        <img src="/sar.jpg" alt="Me" className="home-img" />
-        <img src="/kan.jpg" alt="Partner" className="home-img" />
+  <img src="./sar.jpg" alt="Me" className="home-img" />
+  <img src="./kan.jpg" alt="Partner" className="home-img" />
       </div>
       <div className="home-overlay">
         <h1>
