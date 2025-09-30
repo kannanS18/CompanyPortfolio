@@ -179,8 +179,18 @@ export default function Projects() {
                   <div className={`card-3d-inner ${flippedCards[project.id] ? 'flipped' : ''}`}>
                     <div className="card-front">
                       <div className="project-number">{String(index + 1).padStart(2, '0')}</div>
-                      <h3>{project.title}</h3>
-                      <p>{project.description}</p>
+                      <div className="project-preview">
+                        <iframe 
+                          src={project.url} 
+                          title={project.title}
+                          className="project-iframe"
+                          loading="lazy"
+                        />
+                        <div className="preview-overlay">
+                          <h3>{project.title}</h3>
+                          <p>{project.description}</p>
+                        </div>
+                      </div>
                       <div className="tech-stack-3d">
                         {project.tech.map((tech, i) => (
                           <span key={i} className="tech-tag-3d">{tech}</span>
