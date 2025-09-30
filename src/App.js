@@ -8,12 +8,13 @@ import Services from './componenets/services'
 import Contact from './componenets/contact'
 export default function App() {
   const [activeSection, setActiveSection] = useState(() => {
-    const path = window.location.pathname.slice(1) || 'home';
+    const path = window.location.pathname.replace('/CompanyPortfolio', '').slice(1) || 'home';
     return path;
   });
 
   useEffect(() => {
-    window.history.pushState(null, '', `/${activeSection}`);
+    const newPath = activeSection === 'home' ? '/CompanyPortfolio/' : `/CompanyPortfolio/${activeSection}`;
+    window.history.pushState(null, '', newPath);
   }, [activeSection]);
 
   useEffect(() => {
@@ -22,7 +23,7 @@ export default function App() {
 
   useEffect(() => {
     const handlePopState = () => {
-      const path = window.location.pathname.slice(1) || 'home';
+      const path = window.location.pathname.replace('/CompanyPortfolio', '').slice(1) || 'home';
       setActiveSection(path);
     };
     window.addEventListener('popstate', handlePopState);
