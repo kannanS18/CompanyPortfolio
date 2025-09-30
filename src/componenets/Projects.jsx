@@ -108,117 +108,106 @@ export default function Projects() {
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      
-      const progress = Math.min(scrollY / (documentHeight - windowHeight), 1);
-      setScrollProgress(progress);
-      
-      const projectsSection = document.querySelector('.projects-section-3d');
-      if (projectsSection) {
-        const sectionTop = projectsSection.offsetTop;
-        const sectionHeight = projectsSection.offsetHeight;
-        const scrollInSection = Math.max(0, scrollY - sectionTop);
-        const sectionProgress = Math.min(scrollInSection / (sectionHeight - windowHeight), 1);
-        
-        const newActiveIndex = Math.min(Math.floor(sectionProgress * projects.length), projects.length - 1);
-        setActiveIndex(newActiveIndex);
-        
-        const timelineItems = document.querySelectorAll(".project-card-3d");
-        timelineItems.forEach((item, index) => {
-          item.classList.remove("active");
-          if (index <= newActiveIndex && scrollY > sectionTop - windowHeight / 2) {
-            item.classList.add("active");
-          }
-        });
-      }
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [projects.length]);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
+
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach((card) => {
+      observer.observe(card);
+    });
+
+    return () => {
+      projectCards.forEach((card) => {
+        observer.unobserve(card);
+      });
+    };
+  }, []);
 
   return (
-    <section className="projects-section-3d">
-      <div className="projects-container-3d">
-        <div className="projects-header-3d">
-          <h1>Our Project Journey</h1>
-          <p>Experience our development timeline in 3D</p>
-        </div>
-
-        <div className="timeline-3d" ref={timelineRef}>
-          <div className="timeline-track">
-            <div 
-              className="timeline-progress" 
-              style={{ height: `${scrollProgress * 100}%` }}
-            ></div>
-            <div 
-              className="timeline-orb" 
-              style={{ 
-                top: `${scrollProgress * 100}%`
-              }}
-            >
+    <>
+      {/* Hero Section */}
+      <section className="timeline-hero">
+        <div className="hero-content">
+          <h1 className="gradient-text">Our Project Journey</h1>
+          <p>Showcasing our development expertise through innovative solutions</p>
+          <div className="timeline-stats">
+            <div className="stat-item">
+              <span className="stat-number">9+</span>
+              <span className="stat-label">Projects Completed</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-number">100%</span>
+              <span className="stat-label">Client Satisfaction</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-number">2024</span>
+              <span className="stat-label">Year Active</span>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="projects-grid-3d">
-            {projects.map((project, index) => (
-              <div
-                key={project.id}
-                className={`project-card-3d ${index % 2 === 0 ? "left" : "right"} ${flippedCards[project.id] ? 'flipped' : ''}`}
-                style={{
-                  '--project-color': project.color,
-                  '--delay': `${index * 0.1}s`
-                }}
-              >
-                <div className={`card-3d-wrapper ${flippedCards[project.id] ? 'flipped' : ''}`} onClick={() => handleCardClick(project.id)}>
-                  <div className={`card-3d-inner ${flippedCards[project.id] ? 'flipped' : ''}`}>
-                    <div className="card-front">
-                      <div className="project-number">{String(index + 1).padStart(2, '0')}</div>
-                      <h3>{project.title}</h3>
-                      <p>{project.description}</p>
-                      <div className="tech-stack-3d">
-                        {project.tech.map((tech, i) => (
-                          <span key={i} className="tech-tag-3d">{tech}</span>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="card-back">
-                      <div className="project-details">
-                        <h4>Project Details</h4>
-                        <div className="detail-item">
-                          <span>Status:</span>
-                          <span className={`status-3d ${project.status.toLowerCase().replace(' ', '-')}`}>
-                            {project.status}
-                          </span>
-                        </div>
-                        <div className="detail-item">
-                          <span>Year:</span>
-                          <span>{project.date}</span>
-                        </div>
-                        <button 
-                          className="view-project-3d"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            window.open(project.url, '_blank');
-                          }}
-                        >
-                          <span>View Project</span>
-                          <div className="button-bg"></div>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+      {/* Projects Grid Section */}
+      <section className="projects-grid-section">
+        <div className="projects-grid">
+          {projects.map((project, index) => (
+            <div
+              key={project.id}
+              className="project-card animate"
+              style={{
+                animationDelay: `${index * 0.1}s`
+              }}
+            >
+              <div className="project-icon">
+                <div 
+                  style={{
+                    width: '90%',
+                    height: '180px',
+                    background: `linear-gradient(135deg, ${project.color}, ${project.color}80)`,
+                    borderRadius: '12px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: 'white',
+                    fontSize: '2rem',
+                    fontWeight: 'bold'
+                  }}
+                >
+                  {String(index + 1).padStart(2, '0')}
                 </div>
               </div>
-            ))}
-          </div>
+              <div className="project-details">
+                <p className="project-date">{project.date}</p>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <div className="tech-tags">
+                  {project.tech.map((tech, i) => (
+                    <span key={i}>{tech}</span>
+                  ))}
+                </div>
+                <a 
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="explore-btn"
+                >
+                  Explore Project
+                </a>
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
