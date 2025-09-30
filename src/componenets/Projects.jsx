@@ -16,7 +16,8 @@ export default function Projects() {
       status: "Completed",
       date: "2024",
       color: "#4CAF50",
-      url: "https://ecommerece-website-ivory.vercel.app/home"
+      url: "https://ecommerece-website-ivory.vercel.app/home",
+      image: "https://via.placeholder.com/400x250/4CAF50/ffffff?text=E-Commerce+Website"
     },
     {
       id: 2,
@@ -26,7 +27,8 @@ export default function Projects() {
       status: "Completed",
       date: "2024",
       color: "#2196F3",
-      url: "https://shanthiitsolution.com/internship/kannan/hridtech/Internship/"
+      url: "https://shanthiitsolution.com/internship/kannan/hridtech/Internship/",
+      image: "https://via.placeholder.com/400x250/2196F3/ffffff?text=HridTech+Internship"
     },
     {
       id: 3,
@@ -36,7 +38,8 @@ export default function Projects() {
       status: "Completed",
       date: "2024",
       color: "#FF9800",
-      url: "https://shanthiitsolution.com/internship/kannan/trust/"
+      url: "https://shanthiitsolution.com/internship/kannan/trust/",
+      image: "https://via.placeholder.com/400x250/FF9800/ffffff?text=Trust+Organization"
     },
     {
       id: 4,
@@ -46,7 +49,8 @@ export default function Projects() {
       status: "Completed",
       date: "2024",
       color: "#9C27B0",
-      url: "https://shanthiitsolution.com/internship/kannan/hridtech/Recruitment/"
+      url: "https://shanthiitsolution.com/internship/kannan/hridtech/Recruitment/",
+      image: "https://via.placeholder.com/400x250/9C27B0/ffffff?text=HridTech+Recruitment"
     },
     {
       id: 5,
@@ -56,7 +60,8 @@ export default function Projects() {
       status: "Completed",
       date: "2024",
       color: "#F44336",
-      url: "https://shanthiitsolution.com/internship/kannan/sit_portfolio/"
+      url: "https://shanthiitsolution.com/internship/kannan/sit_portfolio/",
+      image: "https://via.placeholder.com/400x250/F44336/ffffff?text=Personal+Portfolio"
     },
     {
       id: 6,
@@ -66,7 +71,8 @@ export default function Projects() {
       status: "Completed",
       date: "2024",
       color: "#673AB7",
-      url: "https://saravana2745.github.io/portfolio/"
+      url: "https://saravana2745.github.io/portfolio/",
+      image: "https://via.placeholder.com/400x250/673AB7/ffffff?text=Saravana+Portfolio"
     },
     {
       id: 7,
@@ -76,7 +82,8 @@ export default function Projects() {
       status: "Completed",
       date: "2024",
       color: "#795548",
-      url: "https://saravana2745.github.io/Cafe-website/"
+      url: "https://saravana2745.github.io/Cafe-website/",
+      image: "https://via.placeholder.com/400x250/795548/ffffff?text=Cafe+Website"
     },
     {
       id: 8,
@@ -86,7 +93,8 @@ export default function Projects() {
       status: "Completed",
       date: "2024",
       color: "#607D8B",
-      url: "https://saravana2745.github.io/E-commerce-textile/"
+      url: "https://saravana2745.github.io/E-commerce-textile/",
+      image: "https://via.placeholder.com/400x250/607D8B/ffffff?text=E-Commerce+Textile"
     },
     {
       id: 9,
@@ -96,7 +104,8 @@ export default function Projects() {
       status: "Completed",
       date: "2024",
       color: "#FF5722",
-      url: "https://shanthiitsolution.com/internship/saravanasanjay/gym/gym/"
+      url: "https://shanthiitsolution.com/internship/saravanasanjay/gym/gym/",
+      image: "https://via.placeholder.com/400x250/FF5722/ffffff?text=Gym+Website"
     }
   ];
 
@@ -179,18 +188,8 @@ export default function Projects() {
                   <div className={`card-3d-inner ${flippedCards[project.id] ? 'flipped' : ''}`}>
                     <div className="card-front">
                       <div className="project-number">{String(index + 1).padStart(2, '0')}</div>
-                      <div className="project-preview">
-                        <iframe 
-                          src={project.url} 
-                          title={project.title}
-                          className="project-iframe"
-                          loading="lazy"
-                        />
-                        <div className="preview-overlay">
-                          <h3>{project.title}</h3>
-                          <p>{project.description}</p>
-                        </div>
-                      </div>
+                      <h3>{project.title}</h3>
+                      <p>{project.description}</p>
                       <div className="tech-stack-3d">
                         {project.tech.map((tech, i) => (
                           <span key={i} className="tech-tag-3d">{tech}</span>
