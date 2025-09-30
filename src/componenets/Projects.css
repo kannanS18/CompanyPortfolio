@@ -124,11 +124,11 @@
 }
 
 .project-card-3d.left {
-  margin-right: 45%;
+  margin-right: 35%;
 }
 
 .project-card-3d.right {
-  margin-left: 45%;
+  margin-left: 35%;
 }
 
 .project-card-3d.flipped {
@@ -138,13 +138,13 @@
 .card-3d-wrapper {
   perspective: 1000px;
   width: 100%;
-  height: 700px;
-  min-height: 650px;
+  height: 900px;
+  min-height: 850px;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-3d-wrapper.flipped {
-  height: 750px;
+  height: 950px;
 }
 
 .card-3d-inner {
@@ -165,10 +165,10 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  min-height: 650px;
+  min-height: 850px;
   backface-visibility: hidden;
   border-radius: 20px;
-  padding: 2rem;
+  padding: 2.5rem;
   background: var(--card-bg);
   backdrop-filter: blur(15px);
   border: 2px solid transparent;
@@ -249,10 +249,10 @@
 .project-preview {
   position: relative;
   width: 100%;
-  height: 350px;
+  height: 500px;
   border-radius: 15px;
   overflow: hidden;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
@@ -278,16 +278,16 @@
 }
 
 .preview-overlay h3 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.4rem;
+  margin: 0 0 1rem 0;
+  font-size: 1.8rem;
   font-weight: 600;
 }
 
 .preview-overlay p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   opacity: 0.9;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .project-details {
@@ -427,13 +427,13 @@
   }
   
   .card-3d-wrapper {
-    height: 550px;
-    min-height: 500px;
+    height: 750px;
+    min-height: 700px;
   }
   
   .card-3d-wrapper.flipped {
-    height: 600px;
-    min-height: 550px;
+    height: 800px;
+    min-height: 750px;
   }
   
   .card-front, .card-back {
@@ -441,7 +441,7 @@
   }
   
   .project-preview {
-    height: 280px;
+    height: 400px;
   }
   
   .preview-overlay h3 {
@@ -485,13 +485,13 @@
   }
   
   .card-3d-wrapper {
-    height: 500px;
-    min-height: 450px;
+    height: 650px;
+    min-height: 600px;
   }
   
   .card-3d-wrapper.flipped {
-    height: 550px;
-    min-height: 500px;
+    height: 700px;
+    min-height: 650px;
   }
   
   .card-front, .card-back {
@@ -499,7 +499,7 @@
   }
   
   .project-preview {
-    height: 250px;
+    height: 350px;
   }
   
   .preview-overlay h3 {
@@ -543,13 +543,13 @@
   }
   
   .card-3d-wrapper {
-    height: 450px;
-    min-height: 400px;
+    height: 600px;
+    min-height: 550px;
   }
   
   .card-3d-wrapper.flipped {
-    height: 500px;
-    min-height: 450px;
+    height: 650px;
+    min-height: 600px;
   }
   
   .card-front, .card-back {
@@ -557,7 +557,7 @@
   }
   
   .project-preview {
-    height: 220px;
+    height: 300px;
   }
   
   .preview-overlay h3 {
