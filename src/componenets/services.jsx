@@ -64,7 +64,7 @@ export default function Services() {
       </header>
       <div className="glass-card-grid">
         <ServiceCard
-          frontImg="./front.jpg"
+          frontImg="/CompanyPortfolio/front.jpg"
           title="Frontend Development"
           desc="Responsive, fast, and interactive web apps using React, Angular, and modern CSS. We bring your brand to life with animations and pixel-perfect layouts."
           features={[
@@ -77,7 +77,7 @@ export default function Services() {
           backDesc="We create engaging interfaces with smooth transitions, accessibility, and blazing speed. Your users will love every interaction."
         />
         <ServiceCard
-          frontImg="./back.jpg"
+          frontImg="/CompanyPortfolio/back.jpg"
           title="Backend Development"
           desc="Robust, scalable, and secure APIs with Node.js, Express, and MongoDB. We handle data, integrations, and real-time features for your business."
           features={[

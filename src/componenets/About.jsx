@@ -13,7 +13,7 @@ export default function About({ onNavigate }) {
         <div className="team-grid">
           <div className="team-member">
             <div className="member-image">
-              <img src="./sar.jpg" alt="Saravana Sanjhay" />
+              <img src="/CompanyPortfolio/sar.jpg" alt="Saravana Sanjhay" />
             </div>
             <div className="member-info">
               <h3>Saravana Sanjhay.M</h3>
@@ -33,7 +33,7 @@ export default function About({ onNavigate }) {
 
           <div className="team-member">
             <div className="member-image">
-              <img src="./kan.jpg" alt="Kannan" />
+              <img src="/CompanyPortfolio/kan.jpg" alt="Kannan" />
             </div>
             <div className="member-info">
               <h3>Kannan</h3>

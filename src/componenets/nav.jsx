@@ -13,7 +13,7 @@ const Nav = ({ activeSection, onNavigate }) => {
     <nav className="navbar">
       <a href="/home" onClick={(e) => { e.preventDefault(); handleNavClick("home"); }}>
         <div className="navbar-logo">
-          <img src="./logo.png" alt="Portfolio Logo" />
+          <img src="/CompanyPortfolio/logo.png" alt="Portfolio Logo" />
         </div>
       </a>
       <button
