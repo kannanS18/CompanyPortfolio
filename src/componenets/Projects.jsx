@@ -169,13 +169,13 @@ export default function Projects() {
             {projects.map((project, index) => (
               <div
                 key={project.id}
-                className={`project-card-3d ${index % 2 === 0 ? "left" : "right"}`}
+                className={`project-card-3d ${index % 2 === 0 ? "left" : "right"} ${flippedCards[project.id] ? 'flipped' : ''}`}
                 style={{
                   '--project-color': project.color,
                   '--delay': `${index * 0.1}s`
                 }}
               >
-                <div className="card-3d-wrapper" onClick={() => handleCardClick(project.id)}>
+                <div className={`card-3d-wrapper ${flippedCards[project.id] ? 'flipped' : ''}`} onClick={() => handleCardClick(project.id)}>
                   <div className={`card-3d-inner ${flippedCards[project.id] ? 'flipped' : ''}`}>
                     <div className="card-front">
                       <div className="project-number">{String(index + 1).padStart(2, '0')}</div>
