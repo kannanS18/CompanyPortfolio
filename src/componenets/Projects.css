@@ -139,7 +139,8 @@
 .card-3d-wrapper {
   perspective: 1000px;
   width: 100%;
-  height: 400px;
+  height: auto;
+  min-height: 400px;
 }
 
 .card-3d-inner {
@@ -175,6 +176,9 @@
     0 20px 40px rgba(0, 0, 0, 0.3),
     0 0 0 1px rgba(229, 57, 53, 0.2);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card-front::before,
@@ -226,8 +230,9 @@
 .card-front p {
   color: var(--text-gray);
   line-height: 1.6;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   font-size: 1.1rem;
+  flex-grow: 1;
 }
 
 .tech-stack-3d {
@@ -235,6 +240,7 @@
   flex-wrap: wrap;
   gap: 0.8rem;
   justify-content: center;
+  margin-top: auto;
 }
 
 .tech-tag-3d {
@@ -369,11 +375,32 @@
   }
   
   .card-3d-wrapper {
-    height: 350px;
+    height: auto;
+    min-height: 320px;
   }
   
   .card-front, .card-back {
-    padding: 2rem;
+    padding: 1.5rem;
+  }
+  
+  .card-front h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .card-front p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+  }
+  
+  .tech-stack-3d {
+    gap: 0.5rem;
+  }
+  
+  .tech-tag-3d {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
   }
   
   .project-card-3d.left,
@@ -384,5 +411,39 @@
   
   .timeline-track {
     left: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-3d-wrapper {
+    height: auto;
+    min-height: 280px;
+  }
+  
+  .card-front, .card-back {
+    padding: 1.2rem;
+  }
+  
+  .card-front h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .card-front p {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .tech-tag-3d {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+  }
+  
+  .project-number {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    top: -8px;
+    right: -8px;
   }
 }
