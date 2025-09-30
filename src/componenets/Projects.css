@@ -369,11 +369,55 @@
   }
   
   .card-3d-wrapper {
-    height: 350px;
+    height: 450px;
   }
   
   .card-front, .card-back {
-    padding: 2rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .card-front h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .card-front p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+  
+  .tech-stack-3d {
+    gap: 0.5rem;
+    margin-top: auto;
+  }
+  
+  .tech-tag-3d {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .project-details h4 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .detail-item {
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .view-project-3d {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    margin-top: 1rem;
   }
   
   .project-card-3d.left,
@@ -384,5 +428,36 @@
   
   .timeline-track {
     left: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-3d-wrapper {
+    height: 480px;
+  }
+  
+  .card-front, .card-back {
+    padding: 1.2rem;
+  }
+  
+  .card-front h3 {
+    font-size: 1.3rem;
+  }
+  
+  .card-front p {
+    font-size: 0.9rem;
+  }
+  
+  .tech-tag-3d {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+  }
+  
+  .project-number {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    top: -5px;
+    right: -5px;
   }
 }
