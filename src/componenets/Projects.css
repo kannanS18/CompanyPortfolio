@@ -335,6 +335,11 @@
 
 
 
+/* Hide mobile elements on desktop */
+.mobile-project-footer {
+  display: none;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .projects-header-3d h1 {
@@ -407,6 +412,10 @@
     grid-template-rows: auto auto 1fr auto;
     gap: 1rem;
     min-height: 280px;
+  }
+  
+  .mobile-project-footer {
+    display: flex;
   }
   
   .card-back {
@@ -502,6 +511,7 @@
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(229, 57, 53, 0.4);
   }
+}
 }
 
 @media (max-width: 480px) {
