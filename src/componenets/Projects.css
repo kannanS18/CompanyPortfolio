@@ -139,8 +139,7 @@
 .card-3d-wrapper {
   perspective: 1000px;
   width: 100%;
-  height: auto;
-  min-height: 350px;
+  height: 380px;
 }
 
 .card-3d-inner {
@@ -374,8 +373,7 @@
   }
   
   .card-3d-wrapper {
-    height: auto;
-    min-height: 380px;
+    height: 400px;
   }
   
   .card-front, .card-back {
@@ -439,8 +437,7 @@
 
 @media (max-width: 480px) {
   .card-3d-wrapper {
-    height: auto;
-    min-height: 400px;
+    height: 420px;
   }
   
   .card-front, .card-back {
