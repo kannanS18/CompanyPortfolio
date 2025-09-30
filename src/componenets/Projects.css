@@ -36,6 +36,8 @@
   text-shadow: 0 0 30px rgba(229, 57, 53, 0.5);
 }
 
+
+
 .projects-header-3d p {
   font-size: 1.4rem;
   color: var(--text-gray);
@@ -100,6 +102,8 @@
   }
 }
 
+
+
 .projects-grid-3d {
   position: relative;
   z-index: 3;
@@ -111,6 +115,11 @@
   opacity: 0.4;
   transform: translateY(50px);
   transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes cardFloat {
+  0%, 100% { transform: translateY(100px) rotateX(15deg) translateZ(0); }
+  50% { transform: translateY(80px) rotateX(10deg) translateZ(20px); }
 }
 
 .project-card-3d.active {
@@ -145,6 +154,10 @@
 
 .card-3d-inner.flipped {
   transform: rotateY(180deg);
+}
+
+.card-3d-wrapper {
+  cursor: pointer;
 }
 
 .card-front, .card-back {
@@ -197,7 +210,10 @@
   font-weight: 700;
   color: white;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+
 }
+
+
 
 .card-front h3 {
   color: var(--text-white);
@@ -276,6 +292,18 @@
   border: 1px solid #4caf50;
 }
 
+.status-3d.in-progress {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+  border: 1px solid #ffc107;
+}
+
+.status-3d.planning {
+  background: rgba(156, 39, 176, 0.2);
+  color: #9c27b0;
+  border: 1px solid #9c27b0;
+}
+
 .view-project-3d {
   position: relative;
   background: transparent;
@@ -312,10 +340,12 @@
   left: 0;
 }
 
+
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .projects-header-3d h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
   
   .project-card-3d.left,
@@ -335,7 +365,7 @@
   }
   
   .projects-header-3d h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   
   .card-3d-wrapper {
@@ -346,26 +376,6 @@
     padding: 2rem;
   }
   
-  .card-front h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .card-front p {
-    font-size: 1rem;
-    line-height: 1.4;
-    margin-bottom: 1.5rem;
-  }
-  
-  .tech-stack-3d {
-    gap: 0.5rem;
-  }
-  
-  .tech-tag-3d {
-    font-size: 0.8rem;
-    padding: 0.4rem 0.8rem;
-  }
-  
   .project-card-3d.left,
   .project-card-3d.right {
     margin-left: 0;
@@ -374,36 +384,5 @@
   
   .timeline-track {
     left: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .card-3d-wrapper {
-    height: 320px;
-  }
-  
-  .card-front, .card-back {
-    padding: 1.5rem;
-  }
-  
-  .card-front h3 {
-    font-size: 1.3rem;
-  }
-  
-  .card-front p {
-    font-size: 0.9rem;
-  }
-  
-  .tech-tag-3d {
-    font-size: 0.75rem;
-    padding: 0.3rem 0.6rem;
-  }
-  
-  .project-number {
-    width: 50px;
-    height: 50px;
-    font-size: 1.2rem;
-    top: -5px;
-    right: -5px;
   }
 }
