@@ -502,7 +502,7 @@
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(229, 57, 53, 0.4);
   }
-} */
+}
 
 @media (max-width: 480px) {
   .projects-section-3d {
