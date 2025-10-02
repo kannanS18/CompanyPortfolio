@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../componenets/contact.css"; // Or create a new contact.css if you prefer
+import "../componenets/contact.css";
 
 export default function Contact() {
   const [activeForm, setActiveForm] = useState("query");
@@ -14,8 +14,8 @@ export default function Contact() {
     email: "",
     phone: "",
     profession: "",
-    technology: "React",
-    time: "2 weeks",
+    technology: "",
+    time: "",
     message: "",
   });
 
@@ -41,26 +41,74 @@ export default function Contact() {
     setWebsite({ ...website, [e.target.name]: e.target.value });
   }
 
-  function handleQuerySubmit(e) {
+  async function handleQuerySubmit(e) {
     e.preventDefault();
-    if (isQueryValid) {
-      alert("Query submitted!");
-      setQuery({ name: "", email: "", contact: "", message: "" });
+    if (!isQueryValid) return;
+
+    const formData = new FormData();
+    formData.append('access_key', process.env.REACT_APP_WEB3FORMS_ACCESS_KEY);
+    formData.append('subject', 'New Client Query from Portfolio');
+    formData.append('name', query.name);
+    formData.append('email', query.email);
+    formData.append('phone', query.contact);
+    formData.append('message', query.message);
+    formData.append('from_name', 'Portfolio Contact Form');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+      
+      if (response.ok) {
+        alert('Query submitted successfully!');
+        setQuery({ name: "", email: "", contact: "", message: "" });
+      } else {
+        alert('Failed to submit query. Please try again.');
+      }
+    } catch (error) {
+      alert('Error submitting query. Please try again.');
     }
   }
-  function handleWebsiteSubmit(e) {
+
+  async function handleWebsiteSubmit(e) {
     e.preventDefault();
-    if (isWebsiteValid) {
-      alert("Website request submitted!");
-      setWebsite({
-        name: "",
-        email: "",
-        phone: "",
-        profession: "",
-        technology: "React",
-        time: "2 weeks",
-        message: "",
+    if (!isWebsiteValid) return;
+
+    const formData = new FormData();
+    formData.append('access_key', process.env.REACT_APP_WEB3FORMS_ACCESS_KEY);
+    formData.append('subject', 'New Website Request from Portfolio');
+    formData.append('name', website.name);
+    formData.append('email', website.email);
+    formData.append('phone', website.phone);
+    formData.append('profession', website.profession);
+    formData.append('technology', website.technology);
+    formData.append('timeframe', website.time);
+    formData.append('message', website.message || 'No additional message');
+    formData.append('from_name', 'Website Request');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
       });
+      
+      if (response.ok) {
+        alert('Website request submitted successfully!');
+        setWebsite({
+          name: "",
+          email: "",
+          phone: "",
+          profession: "",
+          technology: "",
+          time: "",
+          message: "",
+        });
+      } else {
+        alert('Failed to submit request. Please try again.');
+      }
+    } catch (error) {
+      alert('Error submitting request. Please try again.');
     }
   }
 
@@ -197,8 +245,14 @@ export default function Contact() {
                 onChange={handleWebsiteChange}
                 required
               >
+                <option value="">Select Technology</option>
                 <option value="React">React</option>
                 <option value="Angular">Angular</option>
+                {/* <option value="Vue.js">Vue.js</option>
+                <option value="Next.js">Next.js</option>
+                <option value="WordPress">WordPress</option> */}
+                <option value="HTML/CSS/JS">HTML/CSS/JS</option>
+                <option value="No Preference">No Preference</option>
               </select>
             </div>
             <div className="input-group">
@@ -209,8 +263,12 @@ export default function Contact() {
                 onChange={handleWebsiteChange}
                 required
               >
+                <option value="">Select Timeline</option>
+                <option value="1 week">1 week (Rush)</option>
                 <option value="2 weeks">2 weeks</option>
-                <option value="4 weeks">4 weeks</option>
+                <option value="1 month">1 month</option>
+                {/* <option value="2-3 months">2-3 months</option>
+                <option value="3+ months">3+ months</option> */}
                 <option value="No time constraints">No time constraints</option>
               </select>
             </div>
